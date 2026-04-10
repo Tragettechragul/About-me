@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ragul Balasubramaniyan - IT Systems Administrator & Cybersecurity Expert</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0A528C;
+            --secondary: #0A66C2;
+            --accent: #00D4FF;
+            --danger: #FF6B6B;
+            --success: #51CF66;
+            --dark: #0F1419;
+            --light: #F8F9FA;
+            --text: #1A1A1A;
+            --text-light: #666666;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Animated background */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            position: relative;
+            overflow: hidden;
+            color: white;
+            padding: 40px 20px;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(50px, 50px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+            animation: fadeInScale 1s ease-out 0.2s both;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .hero .title {
+            font-size: 1.5rem;
+            opacity: 0.95;
+            margin-bottom: 30px;
+            animation: fadeInScale 1s ease-out 0.4s both;
+            background: linear-gradient(90deg, var(--accent), #fff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-badges {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin: 30px 0;
+            animation: fadeInScale 1s ease-out 0.6s both;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 20px;
+            border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.3);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-indicator svg {
+            width: 30px;
+            height: 30px;
+            stroke: white;
+            stroke-width: 2;
+            fill: none;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(10px);
+            padding: 15px 40px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            animation: slideDown 0.6s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        nav a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Sections */
+        section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: var(--primary);
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        #about {
+            background: white;
+            border-radius: 15px;
+            margin-top: 80px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--text-light);
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            padding: 25px;
+            border-radius: 10px;
+            color: white;
+            text-align: center;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.5s ease;
+        }
+
+        .stat-card:hover::before {
+            left: 100%;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(10, 82, 140, 0.3);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 5px;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* Experience Section */
+        #experience {
+            background: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .experience-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .experience-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(180deg, var(--accent), var(--secondary));
+            border-radius: 2px;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eef5 100%);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: slideInLeft 0.6s ease-out backwards;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .experience-item:nth-child(1) { animation-delay: 0.1s; }
+        .experience-item:nth-child(2) { animation-delay: 0.2s; }
+        .experience-item:nth-child(3) { animation-delay: 0.3s; }
+        .experience-item:nth-child(4) { animation-delay: 0.4s; }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: -18px;
+            top: 30px;
+            width: 12px;
+            height: 12px;
+            background: white;
+            border: 3px solid var(--secondary);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px var(--primary);
+        }
+
+        .experience-item:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(10, 82, 140, 0.2);
+            background: white;
+        }
+
+        .job-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .company {
+            font-size: 1rem;
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .duration {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 12px;
+        }
+
+        .job-description {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .job-description ul {
+            list-style: none;
+            margin-top: 10px;
+        }
+
+        .job-description li {
+            padding: 5px 0;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .job-description li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Skills Section */
+        #skills {
+            background: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .skill-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eef5 100%);
+            padding: 30px;
+            border-radius: 12px;
+            border: 2px solid transparent;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--secondary));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+            box-shadow: 0 20px 40px rgba(10, 66, 194, 0.2);
+            background: white;
+        }
+
+        .skill-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .skill-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 8px 0;
+            color: var(--text-light);
+            font-size: 0.95rem;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Education & Certifications */
+        #education {
+            background: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .education-item {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8eef5 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 4px solid var(--secondary);
+            transition: all 0.3s ease;
+        }
+
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(10, 82, 140, 0.2);
+            background: white;
+        }
+
+        .cert-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .cert-badge {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .cert-badge::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.5s ease;
+        }
+
+        .cert-badge:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(10, 82, 140, 0.3);
+        }
+
+        .cert-badge:hover::after {
+            left: 100%;
+        }
+
+        .cert-name {
+            font-weight: 700;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .cert-status {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contact Section */
+        #contact {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            border-radius: 15px;
+            margin-top: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #contact h2,
+        #contact h2::after {
+            color: white;
+            background: white;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px 25px;
+            border-radius: 50px;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+
+        .contact-link:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            border-color: rgba(255,255,255,0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                gap: 15px;
+                padding: 10px 20px;
+                flex-wrap: wrap;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .hero .title {
+                font-size: 1.1rem;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .contact-badges {
+                flex-direction: column;
+            }
+
+            .badge {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <a href="#about">About</a>
+        <a href="#experience">Experience</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Ragul Balasubramaniyan</h1>
+            <p class="title">IT Systems Administrator & Cybersecurity Professional</p>
+
+            <div class="contact-badges">
+                <a href="tel:+447423086283" class="badge">
+                    <i class="fas fa-phone"></i> +44 7423 086283
+                </a>
+                <a href="mailto:bragul7064@gmail.com" class="badge">
+                    <i class="fas fa-envelope"></i> bragul7064@gmail.com
+                </a>
+                <a href="https://linkedin.com/in/ragulbalasubra" target="_blank" class="badge">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="#contact" class="badge">
+                    <i class="fas fa-map-marker-alt"></i> Forest Gate, London
+                </a>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                <path d="M12 5v14m0 0l-7-7m7 7l7-7"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>I am an IT Systems Administrator and cybersecurity professional with a passion for building secure, scalable infrastructure and managing enterprise-level systems. Based in Forest Gate, London, I combine technical expertise with a security-first mindset to deliver robust IT solutions.</p>
+
+                <p>Currently pursuing an MSc in Cyber Security Engineering while working as a Junior Systems Administrator, I bring a unique blend of infrastructure management and security knowledge. My experience spans Windows Server administration, cloud technologies, virtualization, and infrastructure security.</p>
+
+                <p>I'm committed to continuous learning and staying at the forefront of technology, with hands-on experience managing complex IT environments and implementing secure, compliant solutions.</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3+</div>
+                    <div class="stat-label">Years IT Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Users Managed</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Certifications</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">MSc</div>
+                    <div class="stat-label">In Progress (2026)</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Professional Experience</h2>
+        <div class="experience-timeline">
+            <div class="experience-item">
+                <div class="job-title">Junior Systems Administrator</div>
+                <div class="company">Epsilon Computers UK, London</div>
+                <div class="duration">2024 – Present</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Administer and maintain Windows Server and Linux-based infrastructure supporting 50+ users</li>
+                        <li>Manage Active Directory, user provisioning, and access control policies</li>
+                        <li>Deploy and manage virtualized infrastructure using Hyper-V and VMware</li>
+                        <li>Implement backup and disaster recovery solutions ensuring business continuity</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Cybersecurity Intern</div>
+                <div class="company">Learnflu (Remote), India</div>
+                <div class="duration">July 2024 – October 2024</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Conducted vulnerability assessments and penetration testing on web applications</li>
+                        <li>Performed security analysis and delivered detailed reports with recommendations</li>
+                        <li>Developed security policies aligned with NIST and ISO 27001 frameworks</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">Penetration Tester (Intern)</div>
+                <div class="company">SkillVertex, India</div>
+                <div class="duration">June 2022 – September 2022</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Simulated cyberattacks using Kali Linux, Nmap, Metasploit, and Burp Suite</li>
+                        <li>Identified vulnerabilities across network and application layers</li>
+                        <li>Produced comprehensive reports with risk ratings and remediation strategies</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-title">System Technician</div>
+                <div class="company">Creative Solutions, Trichy, India</div>
+                <div class="duration">June 2021 – July 2022</div>
+                <div class="job-description">
+                    <ul>
+                        <li>Diagnosed and repaired hardware/software faults across systems</li>
+                        <li>Configured network infrastructure and performed system hardening</li>
+                        <li>Provided technical support and security awareness training</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="skills-container">
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-server"></i></div>
+                <div class="skill-title">Infrastructure</div>
+                <ul class="skill-list">
+                    <li>Windows Server Admin</li>
+                    <li>Active Directory & GPO</li>
+                    <li>Linux Administration</li>
+                    <li>DNS & DHCP</li>
+                    <li>Network Management</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-cloud"></i></div>
+                <div class="skill-title">Cloud & Azure</div>
+                <ul class="skill-list">
+                    <li>Azure Administration</li>
+                    <li>Entra ID / Azure AD</li>
+                    <li>Cloud Infrastructure</li>
+                    <li>AWS Fundamentals</li>
+                    <li>Azure Logic Apps</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-lock"></i></div>
+                <div class="skill-title">Security & IAM</div>
+                <ul class="skill-list">
+                    <li>Identity & Access Mgmt</li>
+                    <li>SAML & SSO Config</li>
+                    <li>PAM Implementation</li>
+                    <li>Security Policies</li>
+                    <li>NIST & ISO 27001</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-database"></i></div>
+                <div class="skill-title">Virtualization</div>
+                <ul class="skill-list">
+                    <li>Hyper-V Management</li>
+                    <li>VMware Infrastructure</li>
+                    <li>Nutanix Basics</li>
+                    <li>VM Deployment</li>
+                    <li>Resource Optimization</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="skill-title">Microsoft Ecosystem</div>
+                <ul class="skill-list">
+                    <li>Microsoft 365 Admin</li>
+                    <li>Exchange Online</li>
+                    <li>SharePoint Mgmt</li>
+                    <li>Teams & Comms</li>
+                    <li>Power Automate</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-hdd"></i></div>
+                <div class="skill-title">Data & Backup</div>
+                <ul class="skill-list">
+                    <li>Database Management</li>
+                    <li>SQL Server Admin</li>
+                    <li>Backup Solutions</li>
+                    <li>Disaster Recovery</li>
+                    <li>Data Protection</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-tools"></i></div>
+                <div class="skill-title">Tools & Tools</div>
+                <ul class="skill-list">
+                    <li>PowerShell Scripting</li>
+                    <li>Network Monitoring</li>
+                    <li>Security Tools</li>
+                    <li>System Hardening</li>
+                    <li>Config Mgmt</li>
+                </ul>
+            </div>
+
+            <div class="skill-card">
+                <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                <div class="skill-title">Soft Skills</div>
+                <ul class="skill-list">
+                    <li>Technical Documentation</li>
+                    <li>Team Collaboration</li>
+                    <li>Problem Solving</li>
+                    <li>Customer Service</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education & Certifications -->
+    <section id="education">
+        <h2>Education & Certifications</h2>
+
+        <h3 style="color: var(--primary); margin-top: 30px;">Education</h3>
+        <div class="education-grid">
+            <div class="education-item">
+                <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px;">
+                    MSc Cyber Security Engineering
+                </div>
+                <div style="color: var(--secondary); font-weight: 600; margin-bottom: 5px;">
+                    University of East London
+                </div>
+                <div style="color: var(--text-light); font-style: italic; font-size: 0.9rem;">
+                    January 2025 – May 2026 (Expected)
+                </div>
+                <div style="margin-top: 10px; font-size: 0.95rem; color: var(--text-light);">
+                    Network Security, Ethical Hacking, Digital Forensics, Security Governance & Risk Management
+                </div>
+            </div>
+
+            <div class="education-item">
+                <div style="font-size: 1.2rem; font-weight: 700; color: var(--primary); margin-bottom: 5px;">
+                    BSc Computer Application
+                </div>
+                <div style="color: var(--secondary); font-weight: 600; margin-bottom: 5px;">
+                    Bishop Heber College, India
+                </div>
+                <div style="color: var(--text-light); font-style: italic; font-size: 0.9rem;">
+                    July 2021 – May 2024
+                </div>
+                <div style="margin-top: 10px; font-size: 0.95rem; color: var(--text-light);">
+                    Programming, Networking, Database Management, System Administration
+                </div>
+            </div>
+        </div>
+
+        <h3 style="color: var(--primary); margin-top: 30px;">Professional Certifications</h3>
+        <div class="cert-badges">
+            <div class="cert-badge">
+                <div class="cert-name">CompTIA Security+</div>
+                <div class="cert-status">In Progress</div>
+            </div>
+            <div class="cert-badge">
+                <div class="cert-name">AWS Cloud Practitioner</div>
+                <div class="cert-status">In Progress</div>
+            </div>
+            <div class="cert-badge">
+                <div class="cert-name">Azure Administrator</div>
+                <div class="cert-status">Planned 2025</div>
+            </div>
+            <div class="cert-badge">
+                <div class="cert-name">MCSA</div>
+                <div class="cert-status">Certified</div>
+            </div>
+            <div class="cert-badge">
+                <div class="cert-name">ITIL Foundation</div>
+                <div class="cert-status">Certified</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get In Touch</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px; opacity: 0.95;">
+            Let's connect and discuss how I can contribute to your organization's success
+        </p>
+
+        <div class="contact-links">
+            <a href="tel:+447423086283" class="contact-link">
+                <i class="fas fa-phone"></i> Call
+            </a>
+            <a href="mailto:bragul7064@gmail.com" class="contact-link">
+                <i class="fas fa-envelope"></i> Email
+            </a>
+            <a href="https://linkedin.com/in/ragulbalasubra" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ragul Balasubramaniyan. All rights reserved.</p>
+        <p style="font-size: 0.9rem; opacity: 0.8;">IT Systems Administrator | Cloud Infrastructure | Cybersecurity Professional</p>
+    </footer>
+
+    <script>
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add scroll animation class
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
